@@ -7,8 +7,8 @@ import lombok.Setter;
 import java.io.Serializable;
 
 @Getter @Setter
-@Entity(name = "tb_category")
-public class Category implements Serializable {
+@Entity(name = "tb_supplier")
+public class Supplier implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id

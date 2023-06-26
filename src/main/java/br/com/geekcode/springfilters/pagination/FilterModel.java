@@ -23,7 +23,7 @@ public class FilterModel {
     public FilterModel(Map<String, String> params) {
         this.size = params.containsKey(SIZE_KEY) ? Integer.valueOf(params.get(SIZE_KEY)) : DEFAULT_SIZE;
         this.page = params.containsKey(PAGE_KEY) ? Integer.valueOf(params.get(PAGE_KEY)) : DEFAULT_PAGE;
-        this.sort = params.containsKey(SORT_KEY) ? params.get(SORT_KEY) : DEFAULT_SORT;
+        this.sort = params.containsKey(SORT_KEY) ? String.valueOf(params.get(SORT_KEY)) : DEFAULT_SORT;
     }
 
     public Pageable toSprintPageable() {
@@ -37,7 +37,7 @@ public class FilterModel {
         String[] properties = sort.split(",");
 
         for (String property: properties) {
-            if (property.trim().isEmpty()) {
+            if (!property.trim().isEmpty()) {
                 String column = "";
 
                 if (property.startsWith("-")) {

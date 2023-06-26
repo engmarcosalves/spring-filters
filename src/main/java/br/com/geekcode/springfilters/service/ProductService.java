@@ -23,7 +23,7 @@ public class ProductService implements IListService<Product> {
 
     @Override
     public PageModel<Product> list(FilterModel filter) {
-        return null;
+        return new PageModel<>(repository.findAll(filter.toSprintPageable()));
     }
 
 }

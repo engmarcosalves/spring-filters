@@ -22,7 +22,7 @@ public class SupplierService implements IListService<Supplier>{
 
     @Override
     public PageModel<Supplier> list(FilterModel filter) {
-        return null;
+        return new PageModel<>(repository.findAll(filter.toSprintPageable()));
     }
 
 }

@@ -2,6 +2,8 @@ package br.com.geekcode.springfilters.pagination;
 
 
 import lombok.Getter;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import java.util.Map;
 
@@ -16,5 +18,9 @@ public class FilterModel {
     public FilterModel(Map<String, String> params) {
         this.size = params.containsKey(SIZE_KEY) ? Integer.valueOf(params.get(SIZE_KEY)) :  DEFAULT_SIZE;
         this.page = params.containsKey(PAGE_KEY) ? Integer.valueOf(params.get(PAGE_KEY)) :  DEFAULT_PAGE;
+    }
+
+    public Pageable toSprintPageable() {
+        return PageRequest.of(page, size);
     }
 }
